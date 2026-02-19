@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://5uywuahjrjif"]
+
+[ext_resource type="Script" uid="uid://c4nks2e7s1jys" path="res://assets/scripts/Menu.cs" id="1_8omcj"]
+
+[node name="Menu" type="Node3D" node_paths=PackedStringArray("highscoreLabel")]
+script = ExtResource("1_8omcj")
+highscoreLabel = NodePath("Control/VBoxContainer/Highscore")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Options" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Exit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[node name="Highscore" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Highscore: --"
+
+[connection signal="button_down" from="Control/VBoxContainer/Play" to="." method="ButtonPressed" binds= [1]]
+[connection signal="button_down" from="Control/VBoxContainer/Options" to="." method="ButtonPressed" binds= [2]]
+[connection signal="button_down" from="Control/VBoxContainer/Exit" to="." method="ButtonPressed" binds= [3]]
